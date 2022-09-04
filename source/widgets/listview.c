@@ -55,7 +55,7 @@
  * scrolling.
  */
 typedef enum { LEFT_TO_RIGHT = 0, RIGHT_TO_LEFT = 1 } MoveDirection;
-
+const char row_label[] = {'a', 'r', 's', 't', 'g', 'k', 'n', 'e', 'i', 'o'};
 typedef struct {
   box *box;
   textbox *textbox;
@@ -297,7 +297,7 @@ static void update_element(listview *lv, unsigned int tb, unsigned int index,
 
   if (lv->boxes[tb].index) {
     if (index < 10) {
-      char str[2] = {((index + 1) % 10) + '0', '\0'};
+      char str[2] = {row_label[index], '\0'};
       textbox_text(lv->boxes[tb].index, str);
     } else {
       textbox_text(lv->boxes[tb].index, " ");
